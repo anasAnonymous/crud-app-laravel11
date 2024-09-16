@@ -31,11 +31,6 @@ class ScreenController extends Controller
                 'description' => $request->description,
                 'image' => $mediaName,
             ]);
-            // $screen = new Screen;
-            // $screen->title = $request->title;
-            // $screen->description = $request->description;
-            // $screen->image = $mediaName;
-            // $screen->save();
             return back()->withSuccess('Screen Added Successfully!');      
 
         } else {
@@ -56,9 +51,6 @@ class ScreenController extends Controller
         return view('screens.edit', compact('screen'));
         // return view('screens.update', ['screen' => $screen]);
     }
-    // public function update(){
-    //     return view('screens.update');
-    // }
 
     public function update(Request $request, $id){
         // dd($request->all());
@@ -77,11 +69,6 @@ class ScreenController extends Controller
                 'description' => $request->description,
                 'image' => $mediaName,
             ]);
-            // $screen = new Screen;
-            // $screen->title = $request->title;
-            // $screen->description = $request->description;
-            // $screen->image = $mediaName;
-            // $screen->save();
             return back()->withSuccess('Screen Updated Successfully!');      
 
         } else {
@@ -92,21 +79,9 @@ class ScreenController extends Controller
             ]);
             return back()->withSuccess('Screen Updated Successfully! Without Media File');      
             // dd('No media uploaded');
-        }
-
-    //     if(isset($request->image)){
-    //         $mediaName = time().'.'.$request->file('media')->extension();
-    //         $request->file('media')->move(public_path('screens'), $mediaName);
-    //         $screen->image = $mediaName;
-    //     }
-        
-    //     // dd($request->all());
-        
-    //     $screen->title = $request->title;
-    //     $screen->description = $request->description;
-    //     $screen->save();
-    //     return back()->withSuccess('Screen Updated Successfully!');      
+        }   
     } 
+    
     public function delete($id){
         $screen = Screen::where('id', $id)->first();
         $screen->delete();
